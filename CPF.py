@@ -22,6 +22,15 @@ O primeiro dígito do CPF é 7
 """
 
 def cpf_checking(cpf):
+
+    """
+    This function may check a CPF by going through a simple algohritm, which is described with an example above (in Portuguese).
+
+    The cpf argument should be a 9 digits STRING. This function may not accept any value of other type or/and length.
+    """
+
+    # First going to calculate the first verification digit.
+
     counter_first_digit = 10
     total_first_digit = 0
     for number in cpf[0:-2]:
@@ -32,10 +41,15 @@ def cpf_checking(cpf):
 
     total_first_digit %= 11
 
+    # Finished calculating now it's going to attribute the value to the 'first_digit' variable.
+
     if total_first_digit > 9:
         first_digit = 0
     else:
         first_digit = 7
+
+
+    # Now I'm going to calculate the second verification digit
 
     counter_second_digit = 11
     total_second_digit = 0
@@ -46,10 +60,15 @@ def cpf_checking(cpf):
     total_second_digit *= 10
     total_second_digit %= 11
 
+    # Finished calculating now it's going to attribute the value to the 'second_digit' variable.
+
+
     if total_second_digit > 9:
         second_digit = 0
     else:
         second_digit = 7
+
+    # Prints a message saying "The verification digits for the given CPF are {first_digit} and {second_digit}, in Portuguese."
 
     print(f"Os dígitos verificadores para o CPF informado são {first_digit} e {second_digit}.")
 
