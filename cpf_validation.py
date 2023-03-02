@@ -21,7 +21,7 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 
-def cpf_checking(cpf):
+def cpf_validation(cpf):
 
     """
     This function may check a CPF by going through a simple algohritm, which is described with an example above (in Portuguese).
@@ -46,7 +46,7 @@ def cpf_checking(cpf):
     if total_first_digit > 9:
         first_digit = 0
     else:
-        first_digit = 7
+        first_digit = total_first_digit
 
 
     # Now I'm going to calculate the second verification digit
@@ -57,8 +57,12 @@ def cpf_checking(cpf):
         total_second_digit += int(number*counter_second_digit)
         counter_second_digit -= 1
     
+
+    print(total_second_digit)
     total_second_digit *= 10
-    total_second_digit %= 11
+    print(total_second_digit)
+    seconddigit = total_second_digit % 11
+    print(total_second_digit)
 
     # Finished calculating now it's going to attribute the value to the 'second_digit' variable.
 
@@ -66,11 +70,13 @@ def cpf_checking(cpf):
     if total_second_digit > 9:
         second_digit = 0
     else:
-        second_digit = 7
+        second_digit = total_second_digit
 
     # Prints a message saying "The verification digits for the given CPF are {first_digit} and {second_digit}, in Portuguese."
 
     print(f"Os dígitos verificadores para o CPF informado são {first_digit} e {second_digit}.")
 
 
-cpf_checking('74682489070')
+cpf_validation('05244450018')
+
+# This module was made exclusively for me to exercise my skills as a Python begginer. I didn't put any work after finishing it simply.
